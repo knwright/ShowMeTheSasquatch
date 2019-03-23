@@ -18,6 +18,11 @@ Tell a better overall story, link to Bigfoot sources, images, etc.
 Change csv files to mongo_db
 Use flash/dash to deploy to Heroku
 
+## Inspiration
+![Interactive Dashboard Inspo](images/interactive_dashboard.png)
+![Sasquatch Map](images/sashquatch_map)
+![Sasquatch Map 2](sasquatch_map2)
+
 ##Group Members: 
 
 Katie Wright, Erin Lampa, Justin Miller, Ricky Ravin, Dave Kingsly
