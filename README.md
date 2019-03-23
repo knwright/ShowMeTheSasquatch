@@ -15,5 +15,9 @@ Users can zoom in to see where the sightings took place, what the terrain was li
 Use Flask instead of Dash for deployment
 Create nicer website using Bootstrap
 Tell a better overall story, link to Bigfoot sources, images, etc.
+Change csv files to mongo_db
+Use flask to
 
-##Group Members: Katie Wright, Erin Lampa, Justin Miller, Ricky Ravin, Dave Kingsly
+##Group Members: 
+
+Katie Wright, Erin Lampa, Justin Miller, Ricky Ravin, Dave Kingsly
