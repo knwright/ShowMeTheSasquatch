@@ -16,7 +16,7 @@ Use Flask instead of Dash for deployment
 Create nicer website using Bootstrap
 Tell a better overall story, link to Bigfoot sources, images, etc.
 Change csv files to mongo_db
-Use flask to
+Use flash/dash to deploy to Heroku
 
 ##Group Members: 
 
