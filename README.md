@@ -22,6 +22,7 @@ Use flash/dash to deploy to Heroku
 ![Interactive Dashboard Inspo](images/interactive_dashboard.png)
 ![Sasquatch Map](images/sashquatch_map.png)
 ![Sasquatch Map 2](images/sasquatch_map2.png)
+![Sasquatch Map 3](images/sasquatch_map3.png)
 
 ##Group Members: 
 
