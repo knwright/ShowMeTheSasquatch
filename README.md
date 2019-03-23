@@ -27,3 +27,9 @@ Use flash/dash to deploy to Heroku
 ##Group Members: 
 
 Katie Wright, Erin Lampa, Justin Miller, Ricky Ravin, Dave Kingsly
+
+Ricky: Flask App, mongo_db
+Erin: HTML, Bootstrap, Readme, dropdown(story page, data page), Marker images
+Katie: Tracing the data, line graph, Heroku Deployment, possible heatmap
+Justin: Visualization (app.js)
+Dave: Visualization (app.js)
