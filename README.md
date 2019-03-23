@@ -18,6 +18,9 @@ Tell a better overall story, link to Bigfoot sources, images, etc.
 Change csv files to mongo_db
 Use flash/dash to deploy to Heroku
 
+## Project Layout Basic Template
+![Layout Template](images/squatch.png)
+
 ## Inspiration
 ![Interactive Dashboard Inspo](images/interactive_dashboard.png)
 ![Sasquatch Map](images/sashquatch_map.png)
