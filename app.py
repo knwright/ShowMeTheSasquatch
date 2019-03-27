@@ -2,23 +2,22 @@ from csv import DictReader
 from flask import Flask
 from toolz import compose, pluck, groupby, valmap, first, unique, get, countby
 import datetime as dt
-from dotenv import find_dotenv,load_dotenv
-
+# from dotenv import find_dotenv,load_dotenv
+import pymongo 
+import pandas as pd
 import os
+
+
 
 
 ################################################################################
 # APP INITIALIZATION
 ################################################################################
 # Read the data.
+conn = 'mongodb://localhost:27017'
+client = pymongo.MongoClient(conn)
+db=client.Bigfootdb
 
-
-fin = open('data/bfro_report_locations.csv', 'r')
-reader = DictReader(fin)
-BFRO_LOCATION_DATA = [
-    line for line in reader
-]
-fin.close()
 
 # Flask app
 app = Flask(__name__)
