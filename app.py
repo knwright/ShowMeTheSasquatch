@@ -1,15 +1,9 @@
-from csv import DictReader
 from flask import Flask, render_template
 from flask_restplus import Api
-from toolz import compose, pluck, groupby, valmap, first, unique, get, countby
-import datetime as dt
-# from dotenv import find_dotenv,load_dotenv
 import pymongo 
 import pandas as pd
 import os
-################################################################################
-# APP INITIALIZATION
-################################################################################
+
 # Read the data.
 conn = 'mongodb://localhost:27017'
 client = pymongo.MongoClient(conn)
@@ -26,9 +20,15 @@ class mainpage():
         return render_template("index.html")
 
 
-# For Heroku deployment
-server = api.server
-server.secret_key = os.environ.get("SECRET_KEY", "secret")
+@api.route("/visualizations")
+class graphs():
+    def get(self):
+
+
+@api.route("data")
+class data():
+    def get(self):
+
 
 
 if __name__ == "__main__":
