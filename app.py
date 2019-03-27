@@ -13,21 +13,23 @@ db=client.Bigfootdb
 app = Flask(__name__)
 api = Api(app=app)
 
-
+# Homepage route displaying the story
 @api.route("/")
 class mainpage():
     def get(self):
         return render_template("index.html")
 
-
+# Route displaying graphs
 @api.route("/visualizations")
 class graphs():
     def get(self):
+        return render_template("index.html")
 
-
+# Route displaying data
 @api.route("data")
 class data():
     def get(self):
+        return render_template("index.html")
 
 
 
