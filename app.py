@@ -26,9 +26,10 @@ class graphs():
         return render_template("index.html")
 
 # Route displaying data
-@api.route("data")
+@api.route("/data")
 class data():
     def get(self):
+        db.session.query
         return render_template("index.html")
 
 
