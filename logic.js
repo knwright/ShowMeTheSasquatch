@@ -14,30 +14,28 @@ function createMap(data) {
     accessToken: API_KEY
   });
 
-  // An array which will be used to store created sightingMarkers
-  var sightingMarkers = [];
+  // Create a new marker cluster group
+  var markers = L.markerClusterGroup();
 
   for (var i = 0; i < data.length; i++) {
     // Loop through the data array, create a new marker,
-    // and push it to the sightingMarkers array.
+    // and push it to the markers group.
     if (data[i].latitude != "")  // location data exists
     {
-      sightingMarkers.push(
-        L.marker([data[i].latitude, data[i].longitude]).bindPopup(
-          "<h1>" + data[i].date + "</h1><br>"
-          + "(" + data[i].latitude + ", " + data[i].longitude + ")"
-          + "<br>" + data[i].county + ", " + data[i].state
-          + "<br>" + data[i].location_details
-          + "<hr>" + data[i].classification + ": (" + i + ") " + data[i].title
-          + "<hr>" + data[i].summary
-          + "<hr>" + data[i].observed
+      // Add a new marker to the cluster group and bind a pop-up
+      popupString = "<h1>" + data[i].date + "</h1><br>"
+        + "(" + data[i].latitude + ", " + data[i].longitude + ")"
+        + "<br>" + data[i].county + ", " + data[i].state
+        + "<br>" + data[i].location_details
+        + "<hr>" + data[i].classification + ": (" + i + ") " + data[i].title
+        + "<hr>" + data[i].summary
+        + "<hr>" + data[i].observed;
+      markers.addLayer(L.marker([data[i].latitude, data[i].longitude])
+        .bindPopup(
+          popupString.substring(0, 2568)  // truncate to prevent popup from flashing on and off
       ));
     }
   }
-
-  // Add all the sightingMarkers to a new layer group.
-  // Now we can handle them as one group instead of referencing each individually
-  var sightingLayer = L.layerGroup(sightingMarkers);
 
   // Create our map, giving it the streetmap and sighting layers to display on load
   var myMap = L.map("map", {
@@ -45,6 +43,9 @@ function createMap(data) {
       45, -93
     ],
     zoom: 4,
-    layers: [streetmap, sightingLayer]
+    layers: [streetmap]
   });
+
+  myMap.addLayer(markers);
 }
+
