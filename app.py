@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_restplus import Api, Resource
-import pymongo 
+import pymongo
+from flask_pymongo import PyMongo
 import pandas as pd
 import os
 
@@ -12,6 +13,9 @@ db=client.bigfootdb
 # Restful flask app
 app = Flask(__name__)
 api = Api(app=app)
+
+app.config["MONGO_URI"] = "mongodb://localhost:27017/bigfootfb"
+mongo = PyMongo(app)
 
 # Homepage route displaying the story
 @api.route("/")
@@ -29,7 +33,7 @@ class graphs(Resource):
 @api.route("/data")
 class data(Resource):
     def get(self):
-        data = list(db.STATE.find())
+        data = mongo.db.listings.find()
         print(data)
         # return render_template("index.html", data=data)
 
