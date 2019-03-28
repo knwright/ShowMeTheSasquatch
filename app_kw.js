@@ -1,30 +1,53 @@
-
-// Retrieve JSON data
-d3.json("bfro_reports.json").then(function(bf_data) {
-    console.log(bf_data);
-});
-
 // Build line plot with traces
-// var trace1 = {
-//     x: data.map(row => row.date.year),
-//     y: data.map(row => row.),
-//     mode = 'lines+markers'
-// };
-// var trace2 = {
-//     x: data.map(row => row.date.year),
-//     y: data.map(row => row.),
-//     mode = 'lines+markers'
-// };
-// var trace3 = {
-//     x: data.map(row => row.date.year),
-//     y: data.map(row => row.),
-//     mode = 'lines+markers'
-// };
-// var graph_data = [trace1];
+function buildPlot(sightings) {
+    d3.json("bfro_reports.json").then(function(bf_data) {
+        console.log(bf_data);
+        // Grab values from the response json object to build the plots
+        var year = bf_data.dataset.year;
+        var time_cond = bf_data.dataset.time_and_conditions;
+        var county = bf_data.dataset.county;
+        var state = bf_data.dataset.state;
+        var season = bf_data.dataset.season;
+        var loc_details = bf.data.dataset.location_details;
 
-// var layout = {
-//     title: "Sasquatch Sightings by Year",
-//     xaxis: { title: "Year" },
-//     yaxis: { title: "Number of Sightings"}
-// }
-// Plotly.newPlot("plot", data, layout);
+        // Build initial scatter trace
+        var trace1 = {
+            type: "scatter",
+            mode: "lines",
+            name: sighting_class,
+            x: year,
+            y: 5032,
+            line: {
+                color: "#277ead"
+            }
+        };
+
+        // Candlestick Trace
+        var trace2 = {
+            type: "candlestick",
+            x: year,
+            Time_Cond: time_cond,
+            County: county,
+            State: state,
+            Season: season,
+            Location_Details: loc_details
+        };
+
+        var data = [trace1, trace2];
+
+        var layout = {
+            title: `Sasquatch Sightings by Year`,
+            xaxis: {
+                range: [//year],
+                type: "date",
+            },
+            yaxis: {
+                autorange: true,
+                type: "linear"
+            }
+        };
+
+        Plotly.newPlot("plot", data, layout);
+
+    });
+}
