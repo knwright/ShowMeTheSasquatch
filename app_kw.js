@@ -29,20 +29,24 @@ function buildPlot(bf_data) {
         myyeararray.forEach(function(x) { yeartotals[x] = (yeartotals[x] || 0)+1; });
         console.log(yeartotals);
         
-        const years = Object.keys(yeartotals);
+        var years = Object.keys(yeartotals);
         console.log(years);
-        const sightings = Object.values(yeartotals);
+        var sightings = Object.values(yeartotals);
         console.log(sightings);
-
+        var text = years.map((years) => sightings.map((sightings) =>
+        `${years}: ${sightings}<br>
+        `))
+        
         // Build initial scatter trace
         var trace1 = {
             type: "scatter",
-            mode: "lines+markers",
+            mode: "markers",
             x: years,
             y: sightings,
             line: {
                 color: "#f442b9"
-            }
+            },
+            hovertext: text 
         };
 
         var data = [trace1];
