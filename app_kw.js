@@ -10,11 +10,6 @@ var myyeararray = [];
 // Build line plot with traces
 function buildPlot(bf_data) {
 
-        // Grab values from the response object to build the plots
-        // var parseDate = d3.timeParse("%Y");
-        // var year = bf_data.map(x => parseDate(x.date));
-        // var sighting = bf_data.map(x => parseDate(x.date));
-
         for (i =0; i < bf_data.length; i++) {
             var activedate = bf_data[i].date;
             initialdates.push(activedate);
@@ -34,14 +29,19 @@ function buildPlot(bf_data) {
         myyeararray.forEach(function(x) { yeartotals[x] = (yeartotals[x] || 0)+1; });
         console.log(yeartotals);
         
+        const years = Object.keys(yeartotals);
+        console.log(years);
+        const sightings = Object.values(yeartotals);
+        console.log(sightings);
+
         // Build initial scatter trace
         var trace1 = {
             type: "scatter",
             mode: "lines+markers",
-            x: myyeararray,
-            y: yeartotals,
+            x: years,
+            y: sightings,
             line: {
-                color: "#277ead"
+                color: "#f442b9"
             }
         };
 
@@ -50,11 +50,11 @@ function buildPlot(bf_data) {
         var layout = {
             title: `Sasquatch Sightings by Year`,
             xaxis: {
-                range: [1850,2020],
+                range: [1850, 2020],
                 type: "year",
             },
             yaxis: {
-                range: [0,100],
+                range: [0, 300],
                 type: "linear"
             }
         };
