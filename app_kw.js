@@ -33,7 +33,7 @@ function buildPlot(bf_data) {
         console.log(years);
         var sightings = Object.values(yeartotals);
         console.log(sightings);
-        var text = years.map((years) => `${years}`)
+        // var text = years.map((years) => `${years}`)
         
         // Build initial scatter trace
         var trace1 = {
@@ -44,9 +44,11 @@ function buildPlot(bf_data) {
             line: {
                 color: "#f442b9"
             },
-            text: text,
+            // text: text,
             marker: {
                 size: sightings,
+                color: years,
+                colorscale: 'Earth',
                 sizeref: 0.2,
                 sizemode: 'area'
             } 
@@ -56,6 +58,7 @@ function buildPlot(bf_data) {
         
         var layout = {
             title: `Sasquatch Sightings by Year`,
+            hovermode: 'closest',
             xaxis: {
                 range: [1850, 2020],
                 type: "year",
