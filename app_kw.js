@@ -1,5 +1,5 @@
 d3.csv("bfro_reports_geocoded.csv").then(function(bf_data) {
-    console.log(bf_data);
+    // console.log(bf_data);
 
     buildPlot(bf_data);
 });
@@ -20,19 +20,19 @@ function buildPlot(bf_data) {
             var myyear = mydatearray[3];
             myyeararray.push(myyear);
         }
-        console.log(myyeararray);
+        // console.log(myyeararray);
 
         // Create empty array to hold total sightings for each year
         var yeartotals = {};
 
         // Populate year totals with total sightings per year
         myyeararray.forEach(function(x) { yeartotals[x] = (yeartotals[x] || 0)+1; });
-        console.log(yeartotals);
+        // console.log(yeartotals);
         
         var years = Object.keys(yeartotals);
-        console.log(years);
+        // console.log(years);
         var sightings = Object.values(yeartotals);
-        console.log(sightings);
+        // console.log(sightings);
         // var text = years.map((years) => `${years}`)
         
         // Build initial scatter trace
@@ -69,6 +69,6 @@ function buildPlot(bf_data) {
             }
         };
 
-        Plotly.newPlot("plot", data, layout);
+        Plotly.newPlot("plot", data, layout, {responsive: true});
 
     }
