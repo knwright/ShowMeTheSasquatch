@@ -14,7 +14,7 @@ bigfoot = api.namespace ('BigFoot', description = 'BigFoot Sightings')
 conn = 'mongodb://localhost:27017'
 client = pymongo.MongoClient(conn)
 db = client.bigfootdb
-collection = db.bigfootdb
+collection = db.metadata
 
 print(collection)
 
@@ -43,9 +43,9 @@ class data(Resource):
         """
         Displays the data collection
         """
-        results = db.bigfootdb.find()
-        for result in results:
-            return results
-
+        results = collection.find()
+        return jsonify(results)
+      
+# Initialize app
 if __name__ == "__main__":
     app.run(debug=True)
