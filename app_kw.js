@@ -48,8 +48,8 @@ function buildPlot(bf_data) {
             marker: {
                 size: sightings,
                 color: years,
-                colorscale: 'Earth',
-                sizeref: 0.2,
+                colorscale: 'Picnic',
+                sizeref: 0.15,
                 sizemode: 'area'
             } 
         };
