@@ -11,11 +11,7 @@ function buildPlot(bf_data) {
         var parseDate = d3.timeParse("%Y");
         var year = bf_data.map(x => parseDate(x.date));
         var sighting = bf_data.map(x => parseDate(x.date));
-        var county = bf_data.map(x => x.county);
-        var state = bf_data.map(x => x.state);
-        var title = bf_data.map(x => x.title);
         
-
         // Build initial scatter trace
         var trace1 = {
             type: "scatter",
@@ -26,18 +22,6 @@ function buildPlot(bf_data) {
                 color: "#277ead"
             }
         };
-
-        // Candlestick Trace
-        var trace2 = {
-            type: "candlestick",
-            x: year,
-            y: sighting,
-            County: county,
-            State: state,
-            Description: title
-        };
-
-        var data = [trace1, trace2];
 
         var layout = {
             title: `Sasquatch Sightings by Year`,
@@ -51,6 +35,6 @@ function buildPlot(bf_data) {
             }
         };
 
-        Plotly.newPlot("plot", data, layout);
+        Plotly.newPlot("plot", trace1, layout);
 
     }
