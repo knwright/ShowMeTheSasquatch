@@ -1,35 +1,35 @@
-var dayofweek = ["Mon", "Tues", "Mon", "Sun", "Sat",
-  "Fri", "Thurs", "Tues", "Sun", "Sat",
-  "Wed", "Wed", "Fri", "Sat", "Tues",
-  "Fri", "Mon", "Fri", "Sun"];
-var daytotals = {};
-
 // Retrieve CSV data
 d3.csv("bfro_reports_geocoded.csv", function(datacsv) {
-  // console.log(datacsv);
-});
+  });
+
+
 
 var fakedates = ['2014-04-03', '2015-11-23', '2009-04-22'];
-// var alldata = datacsv;
-// console.log(alldata);
 
-// console.log(datacsv[1]);
+// Create empty array to hold days of week
+var mydayarray = [];
 
-// Convert date format to day of week
-var parts = fakedates[1].split('-');
-var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
-var mydatestring = mydate.toDateString();
-var mydatearray = mydatestring.split(' ');
-var myday = mydatearray[0];
-console.log(myday);
+// Build for loop to convert date format to day of week
+var i;
+for (i = 0; i < fakedates.length; i++) {
+  var parts = fakedates[i].split('-');
+  var mydate = new Date(parts[0], parts[1] - 1, parts[2]); 
+  var mydatestring = mydate.toDateString();
+  var mydatearray = mydatestring.split(' ');
+  var myday = mydatearray[0];
+  mydayarray.push(myday);
+}
 
-// Total sightings for each day of the week
-dayofweek.forEach(function(x) { daytotals[x] = (daytotals[x] || 0)+1; });
+// Create empty array to hold total sightings for each day of week
+var daytotals = {};
+
+// Populate array with total sightings for each day of the week
+mydayarray.forEach(function(x) { daytotals[x] = (daytotals[x] || 0)+1; });
 
 // Create the Trace
 var trace1 = {
-  x: ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"],
-  y: [daytotals.Mon, daytotals.Tues, daytotals.Wed, daytotals.Thurs, daytotals.Fri, daytotals.Sat, daytotals.Sun],
+  x: ["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  y: [daytotals.Mon, daytotals.Tues, daytotals.Wed, daytotals.Thu, daytotals.Fri, daytotals.Sat, daytotals.Sun],
   type: "bar"
 };
 
