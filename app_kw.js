@@ -1,14 +1,14 @@
 // Build line plot with traces
 function buildPlot(sightings) {
-    d3.json("bfro_reports.json").then(function(bf_data) {
+    d3.csv("bfro_reports_geocoded.csv").then(function(bf_data) {
         console.log(bf_data);
         // Grab values from the response json object to build the plots
-        var year = bf_data.dataset.year;
-        var time_cond = bf_data.dataset.time_and_conditions;
-        var county = bf_data.dataset.county;
-        var state = bf_data.dataset.state;
-        var season = bf_data.dataset.season;
-        var loc_details = bf.data.dataset.location_details;
+        var year = bf_data.year;
+        var time_cond = bf_data.time_and_conditions;
+        var county = bf_data.county;
+        var state = bf_data.state;
+        var season = bf_data.season;
+        var loc_details = bf_data.location_details;
 
         // Build initial scatter trace
         var trace1 = {
@@ -38,8 +38,8 @@ function buildPlot(sightings) {
         var layout = {
             title: `Sasquatch Sightings by Year`,
             xaxis: {
-                range: [//year],
-                type: "date",
+                range: [1860,2020],
+                type: "year",
             },
             yaxis: {
                 autorange: true,
