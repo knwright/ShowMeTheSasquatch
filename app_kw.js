@@ -46,7 +46,7 @@ function buildPlot(bf_data) {
                 type: "year",
             },
             yaxis: {
-                range: [0,200],
+                range: [0,100],
                 type: "linear"
             }
         };
