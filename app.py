@@ -11,7 +11,7 @@ api = Api(app=app)
 bigfoot = api.namespace ('BigFoot', description = 'BigFoot Sightings')
 
 # Load the data from mongodb
-conn = "mongodb://localhost:27017"
+conn = 'mongodb://localhost:27017'
 client = pymongo.MongoClient(conn)
 db = client.bigfootdb
 collection = db.bigfootdb
@@ -45,7 +45,7 @@ class data(Resource):
         """
         results = db.bigfootdb.find()
         for result in results:
-            print(results)
+            return results
 
 if __name__ == "__main__":
     app.run(debug=True)
