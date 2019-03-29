@@ -23,6 +23,7 @@ function buildPlot(bf_data) {
             }
         };
 
+        var data = [trace1];
         var layout = {
             title: `Sasquatch Sightings by Year`,
             xaxis: {
@@ -35,6 +36,6 @@ function buildPlot(bf_data) {
             }
         };
 
-        Plotly.newPlot("plot", trace1, layout);
+        Plotly.newPlot("plot", data, layout);
 
     }
