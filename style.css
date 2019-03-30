@@ -10,3 +10,33 @@ body,
 html {
   height: 100%;
 }
+
+.legend {
+  padding: 5px;
+  font-family: Sanchez, serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #000;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.legend .class_a {
+  padding: 5px;
+  background-color: blue;
+  color: white;
+}
+
+.legend .class_b {
+  padding: 5px;
+  background-color: red;
+  color: white;
+}
+
+.legend .class_c {
+  padding: 5px;
+  background-color: orange;
+  color: white;
+}

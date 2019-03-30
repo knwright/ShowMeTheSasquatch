@@ -1,3 +1,25 @@
+// Initialize an object containing icons for each layer group
+var icons = {
+  "Class A": L.ExtraMarkers.icon({
+    icon: "ion-android-walk",
+    iconColor: "white",
+    markerColor: "blue",
+    shape: "circle"
+  }),
+  "Class B": L.ExtraMarkers.icon({
+    icon: "ion-ios-paw",
+    iconColor: "white",
+    markerColor: "red",
+    shape: "circle"
+  }),
+  "Class C": L.ExtraMarkers.icon({
+    icon: "ion-quote",
+    iconColor: "white",
+    markerColor: "orange",
+    shape: "circle"
+  })
+};
+
 // Retrieve CSV data
 d3.csv("data/bfro_reports_geocoded.csv", function(data) {
   console.log(data);
@@ -21,8 +43,6 @@ function createMap(data) {
     accessToken: API_KEY
   });
   
-  // console.log(data[1228]);
-
   // Create a new marker cluster group
   var markers = L.markerClusterGroup();
   var bigfootHeatArray = [];
@@ -42,10 +62,16 @@ function createMap(data) {
         + "<hr>" + data[i].classification + ": (" + i + ") " + data[i].title
         + "<hr>" + data[i].summary
         + "<hr>" + data[i].observed;
-      markers.addLayer(L.marker([data[i].latitude, data[i].longitude])
+      markers.addLayer(L.marker([data[i].latitude, data[i].longitude], {
+        icon: icons[data[i].classification]
+      })
         .bindPopup(
           popupString.substring(0, 2348)  // truncate to prevent popup from flashing on and off
       ));
+      if (data[i].classification == "Class C")
+      {
+        console.log("Class C: (" + i + ") " + data[i].latitude + "," + data[i].longitude + " " +  data[i].state);
+      }
       // push the location to the heat array
       bigfootHeatArray.push([parseFloat(data[i].latitude), parseFloat(data[i].longitude)]);
     }
@@ -102,5 +128,26 @@ function createMap(data) {
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
   }).addTo(myMap);
-  
+
+  // Create a legend to display information about our map
+  var info = L.control({
+    position: "bottomright"
+  });
+
+  // When the layer control is added, insert a div with the class of "legend"
+  info.onAdd = function() {
+    var div = L.DomUtil.create("div", "legend");
+    return div;
+  };
+  // Add the info legend to the map
+  info.addTo(myMap);
+
+  // legend text
+  document.querySelector(".legend").innerHTML = [
+    "<p>Sightings</p>",
+    "<p class='class_a'>Class A</p>",
+    "<p class='class_b'>Class B</p>",
+    "<p class='class_c'>Class C</p>"
+  ].join("");
 }
+
