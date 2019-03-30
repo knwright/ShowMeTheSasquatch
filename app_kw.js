@@ -158,6 +158,6 @@ function buildPlot(bf_data) {
             ]
         };
 
-        Plotly.newPlot("plot", data, layout, {responsive: true});
+        Plotly.newPlot("bubble_plot", data, layout, {responsive: true});
 
     }
