@@ -15,7 +15,8 @@
 <script src=""></script>
 
 <!-- Dave's Script for map -->
-<script src=""></script>
+<script src="logic.js"></script>
+<script src="leaflet.extra-markers.js"></script>
 
   <!-- Bring in our bootstrap stylesheet -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/yeti/bootstrap.min.css" crossorigin="anonymous">
@@ -37,8 +38,10 @@
           <li class="nav-item">
               <a class="nav-link" href="http://www.bfro.net/GDB/submitfm.asp"  target="_blank">Report  a Sighting</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://www.bfro.net/GDB/submitfm.asp"  target="_blank">Links</a>
+              </li>
         </ul>
-
   </nav>
 <!--End Navbar-->
 
@@ -48,45 +51,64 @@
 
     <!-- First Row -->
     <div class="row">
-      </br>
-      <!-- First (and only column) -->
-      <div class="col-md-12" >
-            </div>
-    </div>
 
-    <!-- Second Row -->
+      <!--Nav Tabs-->
+
+
+       </br>
+      
+    <!-- Second Row Block Quote-->
     <div class="row">
-        <blockquote class="blockquote">
+        <div class="col-md-12" >
+        <blockquote class="blockquote-sm">
             <p class="mb-0">I think Bigfoot is blurry, that's the problem. It's not the photographer's fault. Bigfoot is blurry, and that's extra scary to me. There's a large, out-of-focus monster roaming the countryside. Run, he's fuzzy, get out of here.</p>
             <footer class="blockquote-footer">Mitch Hedberg  </footer>
           </blockquote>
       </div>
+     </div>
 
-     <!-- Third row-->
-    <div class="row">
-    
-      <!--Third Row, First Column-->    
-      
-      <div class="col-md-4">
+    <!-- Third row-->
+         <div class="row">
+        <div class="col-md-3">
+    <p><img src="https://slack-imgs.com/?c=1&url=https%3A%2F%2Fimage-ticketfly.imgix.net%2F00%2F02%2F56%2F88%2F22-og.jpeg%3Fw%3D500%26h%3D334%26fit%3Dcrop%26crop%3Dtop" width=200></p>
+    <p><small>Regardless of whether it is called Sasquatch, Bigfoot, Yeti, or Yowie,  there is no denying
+       that this hominid-like creature has intrigued modern humans for hundreds, if not thousands of years.</small></p>
 
-          
-
-         </div>
-      <!--Third Row, Second Column-->  
-      
-      
-
-    <!--Third Row, Third Column-->    
-      <div class="col-md-5">
-    
-     <div id="bubble_plot"></div>    
-           
-   </div>
-
-
-    <!-- 4th row -->
-    
+       <!--Dropdown with Links-->
+       <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+          <button type="button" class="btn btn-info">Sasquatch Links</button>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop3" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
+              <a class="dropdown-item" href="http://www.bfro.net/">BFRO</a>
+              <a class="dropdown-item" href="#">Dropdown link</a>
+            </div>
+          </div>
         </div>
+
+        </div>
+       
+
+        <!--ADD Dave's PLOT HERE-->
+        <div class="col-md-5">
+    
+            <div id="map"><img src="Images/map.png" width = 800></div>    
+                  
+          </div>
+         
+  
+  <!--ADD Katie's PLOT HERE-->
+  <div class="row">
+        <div class="col-md-12">
+    <div id="bubbleplot">
+      <img src=" https://files.slack.com/files-pri/TDKNN3H2A-FH7FC22C9/kw_bubble_plot.png" width=1200>
+    </div>    
+        </div>
+      </div> 
+     
+    </div> 
+
+<!--Fourth row-->
 
 </body>
 
