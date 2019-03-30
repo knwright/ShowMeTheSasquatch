@@ -43,8 +43,11 @@ class data(Resource):
         """
         Displays the data collection
         """
-        results = collection.find()
-        return jsonify(results)
+        # results = collection.find()
+        # return results
+
+        df = pd.read_csv("data/bfro_reports_geocoded.csv")
+        df
       
 # Initialize app
 if __name__ == "__main__":
