@@ -41,9 +41,6 @@ function buildPlot(bf_data) {
             mode: "markers",
             x: years,
             y: sightings,
-            line: {
-                color: "#f442b9"
-            },
             // text: text,
             marker: {
                 size: sightings,
@@ -59,6 +56,7 @@ function buildPlot(bf_data) {
         var layout = {
             title: `Sasquatch Sightings by Year`,
             hovermode: 'closest',
+            showlegend: false,
             xaxis: {
                 range: [1850, 2020],
                 type: "year",
@@ -66,7 +64,99 @@ function buildPlot(bf_data) {
             yaxis: {
                 range: [0, 300],
                 type: "linear"
-            }
+            },
+            annotations: [
+                {
+                    x: 1951,
+                    y: 15,
+                    xref: 'x',
+                    yref: 'y',
+                    text: "First Footprint<br>Photo<br>1951<br>",
+                    showarrow: true,
+                    font: {
+                        size: 10
+                    },
+                    align: 'left',
+                    arrowhead: 3,
+                    ax: -30,
+                    ay: -40
+                },
+                {
+                    x: 1958,
+                    y: 90,
+                    xref: 'x',
+                    yref: 'y',
+                    text: "Bigfoot 'Hunter'<br>culture emerges<br>1958<br>",
+                    showarrow: true,
+                    font: {
+                        size: 10
+                    },
+                    align: "center",
+                    arrowhead: 3,
+                    ax: -30,
+                    ay: -40
+                },
+                {
+                    x: 1967,
+                    y: 50,
+                    xref: 'x',
+                    yref: 'y',
+                    text: "The 'Patterson<br>Film'<br>1967<br>",
+                    showarrow: true,
+                    font: {
+                        size: 10
+                    },
+                    align: "center",
+                    arrowhead: 3,
+                    ax: -30,
+                    ay: -40
+                },
+                {
+                    x: 1980,
+                    y: 100,
+                    xref: 'x',
+                    yref: 'y',
+                    text: "The World Wide<br>Web Created<br>1980<br>",
+                    showarrow: true,
+                    font: {
+                        size: 10
+                    },
+                    align: "center",
+                    arrowhead: 3,
+                    ax: -30,
+                    ay: -40
+                },
+                {
+                    x: 1994,
+                    y: 150,
+                    xref: 'x',
+                    yref: 'y',
+                    text: "Widespread Internet<br>Use Starts<br>Increasing<br>1994<br>",
+                    showarrow: true,
+                    font: {
+                        size: 10
+                    },
+                    align: "center",
+                    arrowhead: 3,
+                    ax: -30,
+                    ay: -40
+                },
+                {
+                    x: 2009,
+                    y: 275,
+                    xref: 'x',
+                    yref: 'y',
+                    text: "Global Internet Use<br>at 1.853 Billion<br>2009",
+                    showarrow: true,
+                    font: {
+                        size: 10
+                    },
+                    align: "center",
+                    arrowhead: 3,
+                    ax: -30,
+                    ay: -40
+                }
+            ]
         };
 
         Plotly.newPlot("plot", data, layout, {responsive: true});
