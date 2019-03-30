@@ -1,3 +1,4 @@
+// Define data variable
 var fulldata;
 
 // Retrieve CSV data
@@ -6,10 +7,12 @@ d3.csv("bfro_reports_geocoded.csv", function(datacsv) {
   barchart();
  });
 
+// Create empty arrays
 var initialdates = [];
 var mymontharray = [];
 var mydayarray = [];
 
+// Parse desired months/days
 function barchart() {
   for (i =0; i < fulldata.length; i++) {
     var activedate = fulldata[i].date;
@@ -23,15 +26,15 @@ function barchart() {
     var myday = mydatearray[0];
     mydayarray.push(myday);
   }
-// Create empty array to hold total sightings for each day of week
+// Create empty arrays to hold total sightings for each month/day of the week
 var monthtotals = {};
 var daytotals = {};
 
-// Populate array with total sightings for each day of the week
+// Populate arrays with total sightings for each month/day of the week
 mymontharray.forEach(function(x) { monthtotals[x] = (monthtotals[x] || 0)+1; });
 mydayarray.forEach(function(x) { daytotals[x] = (daytotals[x] || 0)+1; });
 
-// Create the Trace
+// Create the Traces
 var trace1 = {
   x: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
   y: [monthtotals.Jan, monthtotals.Feb, monthtotals.Mar, monthtotals.Apr, monthtotals.May, monthtotals.Jun, monthtotals.Jul, monthtotals.Aug, monthtotals.Sep, monthtotals.Oct, monthtotals.Nov, monthtotals.Dec],
@@ -43,12 +46,11 @@ var trace2 = {
     type: "bar"
   };
 
-
-// Create the data array for the plot
+// Create the data arrays for the plots
 var monthdata = [trace1];
 var daydata = [trace2];
 
-// Define the plot layout
+// Define the plot layouts
 var monthlayout = {
   title: "Sightings by Month",
   xaxis: { title: "Month" },
@@ -60,8 +62,7 @@ var daylayout = {
     yaxis: { title: "Number of sightings" }
   };
 
-
-// Plot the chart to a div tag with id "bar-plot"
+// Plot the charts to a div tag
 Plotly.newPlot("month-plot", monthdata, monthlayout);
 Plotly.newPlot("day-plot", daydata, daylayout);
 }
