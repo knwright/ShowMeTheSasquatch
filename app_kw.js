@@ -33,7 +33,6 @@ function buildPlot(bf_data) {
         // console.log(years);
         var sightings = Object.values(yeartotals);
         // console.log(sightings);
-        // var text = years.map((years) => `${years}`)
         
         // Build initial scatter trace
         var trace1 = {
