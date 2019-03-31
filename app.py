@@ -59,7 +59,7 @@ class data(Resource):
             row={}
             for shield in header:
                 row[shield]=each[shield]
-            collection.insert_one(row)
+            collection.insert(row)
         
         # Query the data to show one record
             queries = collection.find()
