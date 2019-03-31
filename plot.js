@@ -34,21 +34,9 @@ var daytotals = {};
 mymontharray.forEach(function(x) { monthtotals[x] = (monthtotals[x] || 0)+1; });
 mydayarray.forEach(function(x) { daytotals[x] = (daytotals[x] || 0)+1; });
 
-// Create the Traces
-var trace1 = {
-  x: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-  y: [monthtotals.Jan, monthtotals.Feb, monthtotals.Mar, monthtotals.Apr, monthtotals.May, monthtotals.Jun, monthtotals.Jul, monthtotals.Aug, monthtotals.Sep, monthtotals.Oct, monthtotals.Nov, monthtotals.Dec],
-  type: "bar"
-};
-var trace2 = {
-    x: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-    y: [daytotals.Mon, daytotals.Tue, daytotals.Wed, daytotals.Thu, daytotals.Fri, daytotals.Sat, daytotals.Sun],
-    type: "bar"
-  };
-
-// Create the data arrays for the plots
-var monthdata = [trace1];
-var daydata = [trace2];
+// Set x and y arrays
+var barx = [["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]];
+var bary = [[monthtotals.Jan, monthtotals.Feb, monthtotals.Mar, monthtotals.Apr, monthtotals.May, monthtotals.Jun, monthtotals.Jul, monthtotals.Aug, monthtotals.Sep, monthtotals.Oct, monthtotals.Nov, monthtotals.Dec],[daytotals.Mon, daytotals.Tue, daytotals.Wed, daytotals.Thu, daytotals.Fri, daytotals.Sat, daytotals.Sun]];
 
 // Define the plot layouts
 var monthlayout = {
@@ -63,6 +51,50 @@ var daylayout = {
   };
 
 // Plot the charts to a div tag
-Plotly.newPlot("month-plot", monthdata, monthlayout);
-Plotly.newPlot("day-plot", daydata, daylayout);
+// Plotly.newPlot("month-plot", monthdata, monthlayout);
+// Plotly.newPlot("day-plot", daydata, daylayout);
+
+
+  function makeTrace(i) {
+      return {
+         x: barx[i],
+         y: bary[i],
+         type: 'bar',
+         visible: i === 0,
+      };
+  }
+  function makelayout(i) {
+    return {
+       x: barx[i],
+       y: bary[i],
+       type: 'bar',
+       visible: i === 0,
+    };
+}
+
+var updatemenus = [{
+  y: 1,
+  yanchor: 'top',
+  buttons: [{
+      method: 'restyle',
+      args: ['visible', [true, false]],
+      label: 'Sightings by month'
+  }, {
+      method: 'restyle',
+      args: ['visible', [false, true]],
+      label: 'Sightings by day of week'
+  }]
+}]
+
+var data = [0, 1].map(makeTrace)
+
+
+var layout = {
+  updatemenus: updatemenus,
+  title: "Sightings by unit of time",
+  xaxis: { title: "Day of Week" },
+  yaxis: { title: "Number of sightings" }
+}
+
+Plotly.plot('barplot', data, layout);
 }
