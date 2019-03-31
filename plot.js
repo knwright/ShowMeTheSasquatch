@@ -38,22 +38,6 @@ mydayarray.forEach(function(x) { daytotals[x] = (daytotals[x] || 0)+1; });
 var barx = [["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]];
 var bary = [[monthtotals.Jan, monthtotals.Feb, monthtotals.Mar, monthtotals.Apr, monthtotals.May, monthtotals.Jun, monthtotals.Jul, monthtotals.Aug, monthtotals.Sep, monthtotals.Oct, monthtotals.Nov, monthtotals.Dec],[daytotals.Mon, daytotals.Tue, daytotals.Wed, daytotals.Thu, daytotals.Fri, daytotals.Sat, daytotals.Sun]];
 
-// Define the plot layouts
-var monthlayout = {
-  title: "Sightings by Month",
-  xaxis: { title: "Month" },
-  yaxis: { title: "Number of sightings" }
-};
-var daylayout = {
-    title: "Sightings by Day of Week",
-    xaxis: { title: "Day of Week" },
-    yaxis: { title: "Number of sightings" }
-  };
-
-// Plot the charts to a div tag
-// Plotly.newPlot("month-plot", monthdata, monthlayout);
-// Plotly.newPlot("day-plot", daydata, daylayout);
-
 
   function makeTrace(i) {
       return {
@@ -63,14 +47,6 @@ var daylayout = {
          visible: i === 0,
       };
   }
-  function makelayout(i) {
-    return {
-       x: barx[i],
-       y: bary[i],
-       type: 'bar',
-       visible: i === 0,
-    };
-}
 
 var updatemenus = [{
   y: 1,
@@ -92,7 +68,6 @@ var data = [0, 1].map(makeTrace)
 var layout = {
   updatemenus: updatemenus,
   title: "Sightings by unit of time",
-  xaxis: { title: "Day of Week" },
   yaxis: { title: "Number of sightings" }
 }
 
