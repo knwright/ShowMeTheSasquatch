@@ -38,7 +38,7 @@ class graphs(Resource):
         Displays the graphs
         """
         headers = {'Content-Type': 'text/html'}
-        return make_response (render_template('index.html'),200,headers)
+        return make_response (render_template('evidence.html'),200,headers)
 
 # Route displaying data
 @bigfoot.route("/data")
