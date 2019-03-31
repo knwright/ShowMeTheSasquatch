@@ -1,9 +1,14 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, make_response
 from flask_restplus import Api, Resource
-import pymongo
+from pymongo import MongoClient
 from flask_pymongo import PyMongo
 import pandas as pd
 import os
+import csv
+from bson.json_util import dumps
+import json
+from bson import ObjectId
+
 
 # Restful flask app
 app = Flask(__name__)
@@ -11,12 +16,10 @@ api = Api(app=app)
 bigfoot = api.namespace ('BigFoot', description = 'BigFoot Sightings')
 
 # Load the data from mongodb
-conn = 'mongodb://localhost:27017'
-client = pymongo.MongoClient(conn)
-db = client.bigfootdb
-collection = db.metadata
-
-print(collection)
+conn = 'mongodb://localhost:27017/bigfootdb'
+mongo_client = MongoClient(conn)
+db = mongo_client.bigfootdb
+collection = db.inventory
 
 # Homepage route displaying the story
 @bigfoot.route("/")
@@ -25,7 +28,8 @@ class mainpage(Resource):
         """
         Displays the story of bigfoot
         """
-        return ('Hello World')
+        headers = {'Content-Type': 'text/html'}
+        return make_response (render_template('index.html'),200,headers)
 
 # Route displaying graphs
 @bigfoot.route("/visualizations")
@@ -43,12 +47,27 @@ class data(Resource):
         """
         Displays the data collection
         """
-        # results = collection.find()
-        # return results
 
-        df = pd.read_csv("data/bfro_reports_geocoded.csv")
-        df
-      
+        csvfile = open('data/bfro_reports_geocoded.csv')
+        records = csv.DictReader(csvfile)
+        collection.drop()
+
+        header= ["county", "state", "latitude", "longitude", "date", "number", "classification", "geohash", "temperature_high", "temperature_mid", "temperature_low",	"dew_point", "humidity", "cloud_cover",	"moon_phase", "precip_intensity", "precip_probability",	"precip_type", "pressure", "summary", "uv_index", "visibility",	"wind_bearing",	"wind_speed"]
+
+        for each in records:
+            row={}
+            for field in header:
+                row[field]=each[field]
+                
+        
+    
+        collection.insert(row)
+        queries = collection.find()
+        for row in queries:
+            return dumps (row)
+
+        
+
 # Initialize app
 if __name__ == "__main__":
     app.run(debug=True)
