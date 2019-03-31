@@ -9,7 +9,6 @@ from bson.json_util import dumps
 import json
 from bson import ObjectId
 
-
 # Restful flask app
 app = Flask(__name__)
 api = Api(app=app)
@@ -48,26 +47,26 @@ class data(Resource):
         Displays the data collection
         """
 
+        # Read csv file
         csvfile = open('data/bfro_reports_geocoded.csv')
         records = csv.DictReader(csvfile)
         collection.drop()
 
+        # Load data into Mongodb
         header= ["county", "state", "latitude", "longitude", "date", "number", "classification", "geohash", "temperature_high", "temperature_mid", "temperature_low",	"dew_point", "humidity", "cloud_cover",	"moon_phase", "precip_intensity", "precip_probability",	"precip_type", "pressure", "summary", "uv_index", "visibility",	"wind_bearing",	"wind_speed"]
 
         for each in records:
             row={}
-            for field in header:
-                row[field]=each[field]
-                
+            for shield in header:
+                row[shield]=each[shield]
+            collection.insert_one(row)
         
-    
-        collection.insert(row)
-        queries = collection.find()
+        # Query the data to show one record
+            queries = collection.find()
         for row in queries:
             return dumps (row)
 
         
-
 # Initialize app
 if __name__ == "__main__":
     app.run(debug=True)
