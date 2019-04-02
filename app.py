@@ -25,17 +25,7 @@ collection = db.inventory
 class mainpage(Resource):
     def get(self):
         """
-        Displays the story of bigfoot
-        """
-        headers = {'Content-Type': 'text/html'}
-        return make_response (render_template('index.html'),200,headers)
-
-# Route displaying graphs
-@bigfoot.route("/visualizations")
-class graphs(Resource):
-    def get(self):
-        """
-        Displays the graphs
+        Story and visualizations of bigfoot
         """
         headers = {'Content-Type': 'text/html'}
         return make_response (render_template('index.html'),200,headers)
@@ -45,9 +35,9 @@ class graphs(Resource):
 class data(Resource):
     def get(self):
         """
-        Displays the data collection
+        Queries the data collection
         """
-
+        
         # Read csv file
         csvfile = open('data/bfro_reports_geocoded.csv')
         records = csv.DictReader(csvfile)
@@ -58,8 +48,8 @@ class data(Resource):
 
         for each in records:
             row={}
-            for shield in header:
-                row[shield]=each[shield]
+            for field in header:
+                row[field]=each[field]
             collection.insert(row)
         
         # Query the data to show one record
@@ -67,7 +57,6 @@ class data(Resource):
         for row in queries:
             return dumps (row)
 
-        
 # Initialize app
 if __name__ == "__main__":
     app.run(debug=True)
