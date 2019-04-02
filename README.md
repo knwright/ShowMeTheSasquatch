@@ -1,4 +1,8 @@
 # ShowMeTheSasquatch
+
+https://knwright.github.io/ShowMeTheSasquatch/
+
+
 Project 2 - Tell a story with data.
 
 Bigfoot Sightings Interactive Dashboard using Plotly
