@@ -44,7 +44,7 @@ class data(Resource):
         collection.drop()
 
         # Load data into Mongodb
-        header= ["county", "state", "latitude", "longitude", "date", "number", "classification", "geohash", "temperature_high", "temperature_mid", "temperature_low",	"dew_point", "humidity", "cloud_cover",	"moon_phase", "precip_intensity", "precip_probability",	"precip_type", "pressure", "summary", "uv_index", "visibility",	"wind_bearing",	"wind_speed"]
+        header = ["county", "state", "latitude", "longitude", "date", "number", "classification", "geohash", "temperature_high", "temperature_mid", "temperature_low",	"dew_point", "humidity", "cloud_cover",	"moon_phase", "precip_intensity", "precip_probability",	"precip_type", "pressure", "summary", "uv_index", "visibility",	"wind_bearing",	"wind_speed"]
 
         for each in records:
             row={}
