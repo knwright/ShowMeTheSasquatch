@@ -7,22 +7,33 @@
 
   <title>The Sasquatch Story</title>
 
+<!-- Bring in our bootstrap stylesheet -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/yeti/bootstrap.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
 <!-- Katie's Script for map -->
-<script src="{{ url_for('static'), filename='js/app_kw.js') }}"></script>
+<script src="static/js/app_kw.js"></script>
 
 <!-- Justin's Script for map -->
-<script src="{{ url_for('static'), filename='js/plot-jm.js') }}"></script>
-<!--<script src="static/js/plot-jm.js"></script>-->
 
-<!-- Dave's Script for map -->
-<script src="{{ url_for('static'), filename='js/logic.js') }}"></script>
-<script src="{{ url_for('static'), filename='js/leaflet.extra-markers.js') }}"></script>
-<!-- <script src="static/js/logic.js"></script>
-<script src="static/js/leaflet.extra-markers.js"></script>-->
+<script src="static/js/plot-jm.js"></script>
 
-  <!-- Bring in our bootstrap stylesheet -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/yeti/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+<!-- Dave's Scripts for map -->
+<script src="static/js/logic.js"></script>
+<script src="static/js/leaflet.extra-markers.js"></script>
+
+<!-- API key -->
+<script type="text/javascript" src="static/js/config.js"></script>
+
+<!-- JS -->
+<script type="text/javascript" src="static/js/logic.js"></script>
+ 
+<!-- Leaflet heatmap plugin-->
+<script type="text/javascript" src="static/js/leaflet-heat.js"></script> 
+
+<!-- Icons -->
+<script src="static/js/leaflet.extra-markers.min.js"></script>
+ 
 </head>
 
 <body>
@@ -37,7 +48,7 @@
                  <li class="nav-item">
               <a class="nav-link" href="http://www.bfro.net/GDB/submitfm.asp"  target="_blank">Report  a Sighting</a>
             </li>
-           s
+           
         </ul>
   </nav>
 <!--End Navbar-->
@@ -93,9 +104,10 @@
             that this hominid-like creature has intrigued modern humans for hundreds, if not thousands of years.</p>
 
     </div>
-            <div id="map"></div>    
-                  
-          </div>
+    <div id="map"></div>
+
+
+
          
   
   <!--ADD Katie's PLOT HERE-->
