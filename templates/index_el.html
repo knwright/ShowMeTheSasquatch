@@ -26,10 +26,17 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">Their Story <span class="sr-only">(current)</span></a>
           </li>
-                 <li class="nav-item">
-              <a class="nav-link" href="http://www.bfro.net/GDB/submitfm.asp"  target="_blank">Report  a Sighting</a>
-            </li>
-           
+              <li class="nav-item">
+                <a class="nav-link" href="http://www.bfro.net/GDB/submitfm.asp"  target="_blank">Report  a Sighting</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index_kw.html">Sightings by Year</a>
+              <li class="nav-item">
+                <a class="nav-link" href="index_jm.html">Sightings by Month/Day</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="index_dk.html">Sightings Map</a>  
+          </li>  
         </ul>
   </nav>
 <!--End Navbar-->
@@ -63,66 +70,13 @@
        
 
         </div>
-       
 
-        <!--ADD Dave's PLOT HERE-->
-        <div class="col-md-9">
     <div>
         <p>Regardless of whether it is called Sasquatch, Bigfoot, Yeti, or Yowie,  there is no denying
             that this hominid-like creature has intrigued modern humans for hundreds, if not thousands of years.</p>
 
     </div>
-  <div id="map"></div>
-
-   <!-- Icons -->
-   <script src="leaflet.extra-markers.min.js"></script>
-
-   <!-- API key -->
-   <script type="text/javascript" src="config.js"></script>
-
-   <!-- JS -->
-   <script type="text/javascript" src="logic.js"></script>
-
-   <!-- Leaflet heatmap plugin-->
-   <script type="text/javascript" src="leaflet-heat.js"></script>
-
-
-
-         
-  
-  <!--ADD Katie's PLOT HERE-->
-  <div class="row">
-        <div class="col-md-12">
-    <div id="bubbleplot">
      
-    </div>    
-        </div>
-      </div> 
-     
-    </div> 
-
-<!--Fourth row-->
-<!--ADD Justin's PLOT HERE-->
-  <div class="row">
-      <div class="col-md-12">
-  <div id="barplot"></div>    
-      </div>
-    </div> 
-   
-  </div>
-
-<!--D3 Script-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
-
-<!-- Katie's Script for map -->
-<script src="{{ url_for('static', filename='js/app_kw.js') }}"></script>
-
-<!-- Justin's Script for map -->
-
-<script src="{{ url_for('static', filename='js/plot-jm.js') }}"></script>
-
-
 
 </body>
 
