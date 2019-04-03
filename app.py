@@ -14,7 +14,7 @@ app = Flask(__name__)
 api = Api(app=app)
 bigfoot = api.namespace ('BigFoot', description = 'BigFoot Sightings')
 
-# Load the data from mongodb
+# Create connection to MongoDB
 conn = 'mongodb://localhost:27017/bigfootdb'
 mongo_client = MongoClient(conn)
 db = mongo_client.bigfootdb
@@ -25,41 +25,31 @@ collection = db.inventory
 class mainpage(Resource):
     def get(self):
         """
-        Displays the story of bigfoot
+        Story and visualizations of bigfoot
         """
         headers = {'Content-Type': 'text/html'}
         return make_response (render_template('index.html'),200,headers)
-
-# Route displaying graphs
-@bigfoot.route("/visualizations")
-class graphs(Resource):
-    def get(self):
-        """
-        Displays the graphs
-        """
-        headers = {'Content-Type': 'text/html'}
-        return make_response (render_template('evidence.html'),200,headers)
 
 # Route displaying data
 @bigfoot.route("/data")
 class data(Resource):
     def get(self):
         """
-        Displays the data collection
+        Queries the data collection
         """
-
+        
         # Read csv file
         csvfile = open('data/bfro_reports_geocoded.csv')
         records = csv.DictReader(csvfile)
         collection.drop()
 
         # Load data into Mongodb
-        header= ["county", "state", "latitude", "longitude", "date", "number", "classification", "geohash", "temperature_high", "temperature_mid", "temperature_low",	"dew_point", "humidity", "cloud_cover",	"moon_phase", "precip_intensity", "precip_probability",	"precip_type", "pressure", "summary", "uv_index", "visibility",	"wind_bearing",	"wind_speed"]
+        header = ["county", "state", "latitude", "longitude", "date", "number", "classification", "geohash", "temperature_high", "temperature_mid", "temperature_low",	"dew_point", "humidity", "cloud_cover",	"moon_phase", "precip_intensity", "precip_probability",	"precip_type", "pressure", "summary", "uv_index", "visibility",	"wind_bearing",	"wind_speed"]
 
         for each in records:
             row={}
-            for shield in header:
-                row[shield]=each[shield]
+            for field in header:
+                row[field]=each[field]
             collection.insert(row)
         
         # Query the data to show one record
@@ -67,7 +57,6 @@ class data(Resource):
         for row in queries:
             return dumps (row)
 
-        
 # Initialize app
 if __name__ == "__main__":
     app.run(debug=True)
