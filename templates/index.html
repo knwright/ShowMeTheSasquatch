@@ -13,7 +13,8 @@
 <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
-
+<!-- Marker Cluster JS & CSS -->
+<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
 </head>
 
 <body>
@@ -108,26 +109,31 @@
    
   </div>
 
+  <!--D3 Script-->
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
   <!-- Katie's Script for map -->
+
+
 <script src="{{ url_for('static', filename='js/app_kw.js') }}"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<!--https://github.com/knwright/ShowMeTheSasquatch/blob/master/-->
+
+
 <!-- Justin's Script for map -->
 
 <script src="{{ url_for('static', filename='js/plot-jm.js') }}"></script>
 
 <!-- Dave's Scripts for map -->
-<script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+
 <script src="{{ url_for('static', filename='js/leaflet.extra-markers.min.js') }}"></script>
 
 <!-- API key -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script>
+<script src="{{ url_for('static', filename='js/logic.js') }}"></script>
 
 <!-- Leaflet heatmap plugin-->
 <script type="text/javascript" src="{{ url_for('static', filename='js/leaflet-heat.js') }}"></script> 
 
-<!-- Marker Cluster JS & CSS -->
-<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+
 
 </body>
 
