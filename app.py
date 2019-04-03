@@ -20,15 +20,35 @@ mongo_client = MongoClient(conn)
 db = mongo_client.bigfootdb
 collection = db.inventory
 
-# Homepage route displaying the story
+# Homepage route with dropdowns
 @bigfoot.route("/")
 class mainpage(Resource):
     def get(self):
         """
-        Story and visualizations of bigfoot
+        Bigfoot Homepage
         """
         headers = {'Content-Type': 'text/html'}
-        return make_response (render_template('index.html'),200,headers)
+        return make_response (render_template('index_el.html'),200,headers)
+
+# Homepage route with dropdowns
+@bigfoot.route("/map")
+class mainpage(Resource):
+    def get(self):
+        """
+        Bigfoot Homepage
+        """
+        headers = {'Content-Type': 'text/html'}
+        return make_response (render_template('index_dk.html'),200,headers)
+
+# Homepage route with dropdowns
+@bigfoot.route("/scatterplot")
+class mainpage(Resource):
+    def get(self):
+        """
+        Bigfoot Homepage
+        """
+        headers = {'Content-Type': 'text/html'}
+        return make_response (render_template('index_kw.html'),200,headers)
 
 # Route displaying data
 @bigfoot.route("/data")
