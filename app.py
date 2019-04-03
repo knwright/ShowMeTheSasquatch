@@ -14,7 +14,7 @@ app = Flask(__name__)
 api = Api(app=app)
 bigfoot = api.namespace ('BigFoot', description = 'BigFoot Sightings')
 
-# Load the data from mongodb
+# Create connection to MongoDB
 conn = 'mongodb://localhost:27017/bigfootdb'
 mongo_client = MongoClient(conn)
 db = mongo_client.bigfootdb
