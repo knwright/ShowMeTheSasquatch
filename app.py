@@ -29,6 +29,7 @@ class mainpage(Resource):
         """
         headers = {'Content-Type': 'text/html'}
         return make_response (render_template('index_el.html'),200,headers)
+<<<<<<< HEAD
 
 # Homepage route with dropdowns
 @bigfoot.route("/map")
@@ -49,6 +50,8 @@ class mainpage(Resource):
         """
         headers = {'Content-Type': 'text/html'}
         return make_response (render_template('index_kw.html'),200,headers)
+=======
+>>>>>>> 45af433274ab4ede178e2c8cb7132f0b82d706d8
 
 # Route displaying data
 @bigfoot.route("/data")
