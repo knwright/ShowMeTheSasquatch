@@ -7,7 +7,7 @@ import os
 import csv
 from bson.json_util import dumps
 import json
-from bson import ObjectId
+from bson import ObjectId, json_util
 
 # Restful flask app
 app = Flask(__name__)
@@ -20,15 +20,46 @@ mongo_client = MongoClient(conn)
 db = mongo_client.bigfootdb
 collection = db.inventory
 
-# Homepage route displaying the story
+
+# Homepage route with dropdowns
 @bigfoot.route("/")
 class mainpage(Resource):
     def get(self):
         """
-        Story and visualizations of bigfoot
+        Bigfoot Homepage
         """
         headers = {'Content-Type': 'text/html'}
-        return make_response (render_template('index.html'),200,headers)
+        return make_response (render_template('index_el.html'),200,headers)
+
+# Homepage route with dropdowns
+@bigfoot.route("/index_dk.html")
+class scatter(Resource):
+    def get(self):
+        """
+        Bigfoot Homepage
+        """
+        headers = {'Content-Type': 'text/html'}
+        return make_response (render_template('index_dk.html'),200,headers)
+
+# Homepage route with dropdowns
+@bigfoot.route("/index_kw.html")
+class map(Resource):
+    def get(self):
+        """
+        Bigfoot Homepage
+        """
+        headers = {'Content-Type': 'text/html'}
+        return make_response (render_template('index_kw.html'),200,headers)
+
+# Homepage route with dropdowns
+@bigfoot.route("/index_jm.html")
+class map(Resource):
+    def get(self):
+        """
+        Bigfoot Homepage
+        """
+        headers = {'Content-Type': 'text/html'}
+        return make_response (render_template('index_jm.html'),200,headers)
 
 # Route displaying data
 @bigfoot.route("/data")
@@ -52,10 +83,21 @@ class data(Resource):
                 row[field]=each[field]
             collection.insert(row)
         
-        # Query the data to show one record
-            queries = collection.find()
-        for row in queries:
-            return dumps (row)
+        fields = {
+            "county": True, "state":True, "latitude": True, "longitude":True, "date":True, "number":True, 
+            "classification":True, "geohash":True, "temperature_high":True, "temperature_mid":True, 
+            "temperature_low":True,	"dew_point":True, "humidity":True, "cloud_cover":True,	"moon_phase":True,
+            "precip_intensity":True, "precip_probability":True,	"precip_type":True, "pressure":True, "summary":True, 
+            "uv_index":True, "visibility":True,	"wind_bearing":True, "wind_speed":True, "_id":False
+            }
+
+        sightings = collection.find(projection=fields)
+        json_sightings = []
+        for sighting in sightings:
+            json_sightings.append(sighting)
+        json_sightings=json.dumps(json_sightings, default=json_util.default)
+        return json_sightings
+
 
 # Initialize app
 if __name__ == "__main__":
