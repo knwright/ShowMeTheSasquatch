@@ -39,6 +39,7 @@
                
             </ul>
             </div>   
+          
       </nav>
     <!--End Navbar-->
 
@@ -51,17 +52,23 @@
     
            </br>
         </div>  
-        <!-- Second Row Block Quote-->
+        <!-- Second Row -->
         <div class="row">
-            <div class="col-md-12" > </div>
+            <div class="col-md-12" > 
+
+   
+            </div>
          </div>
     
         <!-- 2nd row-->
         <div class="row">
             <div class="col-md-3">
-            <p>
-            <img src="https://slack-imgs.com/?c=1&url=https%3A%2F%2Fimage-ticketfly.imgix.net%2F00%2F02%2F56%2F88%2F22-og.jpeg%3Fw%3D500%26h%3D334%26fit%3Dcrop%26crop%3Dtop" width=200>
-            </p>
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Sasquatch sighted in the Minneapoils/St.Paul area. Be on the Lookout!</strong> <a href="#" class="alert-link"></br>DO NOT ATTEMPT TO FEED</a>.
+                  </div>
+           
+
                 <blockquote class="blockquote-xsm">
                 <p class="mb-0">
                   I think Bigfoot is blurry, that's the problem. It's not the photographer's fault. Bigfoot is blurry, 
@@ -70,6 +77,8 @@
                 </p>
                     <footer class="blockquote-footer">Mitch Hedberg  </footer>
                 </blockquote>    
+                <div><img src="../images/yeti.png"></div>
+  
            </div>
         <div class="col-md-9"> 
           <!--Tabbed Story Items-->
@@ -90,23 +99,43 @@
                           </li>        
                     </ul>
                     <div id="myTabContent" class="tab-content">
-                      <div class="tab-pane fade show active" id="home">
-                        <p>Bigfoot info here</p>
+                      <div class="tab-pane fade show active" id="home"></br>
+                        <p>Sasquatch, Bigfoot, Yeti, Ape-Man, George...</br>
+                        Whatever you want to call this creature, it has been mysteriously roaming the world.</p>
+                        <p>Little is known about it. It howls at night. It leaves footprints. It is always just out of focus in photographs.</br>
+                      So, is it real? Are people who have sightings just crackpots? Or, is there something out there?</p>
+                      <p>Below is the <a href="https://en.wikipedia.org/wiki/Patterson%E2%80%93Gimlin_film">Patterson-Gimlin film</a>, one of the most famous Bigfoot sightings.  Recorded in 1967 in California, the authenticity of       
+                        the film has been a heated topic for decades.</br>
+                      
+                      </p>
+                      
+                      <!--Add Video-->
+                      <video id='my-video' class='video-js' controls preload='auto' width='640' height='264'
+                       data-setup='{}'>
+                        <source src='../images/patterson.mp4' type='video/mp4'>
+                       
+                      </video>
+                    
+                      <script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
+                      <!--End Video-->
                       </div>
-                      <div class="tab-pane fade show" id="where">
-                        <p>More shit here.</p>
+                      <div class="tab-pane fade show" id="where"></br>
+                        <p>As you can see, there have been thousands of sightings across the continental United States. From the looks of it, this creature tends to gravitate towards areas where
+                          they are able to find places to hide. Notice the desert and the plains states do not have nearly as many sightings. If I had a fur coat like Sasquatch, I wouldn't want to live in the desert either.
+                        </p>
                         
                         <a href="../templates/index_dk.html" target="_blank" data-toggle="tooltip" data-placement="top" title="Click for a full interactive map!">
-                          <img src="../images/map.png">
+                          <img src="../images/map.png" width="750">
                         </a>
                       </div>
-                      <div class="tab-pane fade show" id="when">
-                          <p>even More shit here.</p>
+                      <div class="tab-pane fade show" id="when"></br>
+                          <p>Daytime, night time, spring, summer or fall...? When is the best time to go squatch hunting. Click on the image below for an interactive graph of when the most sightings have occurred.</p>
                         </div>
-                        <div class="tab-pane fade show" id="trends">
-                            <p>yes, More shit here.</p>
+                        <div class="tab-pane fade show" id="trends" ></br>
+                            <p>What has caused the upward trend in Sasquatch Sightings? Could it possibly be....<strong>The Internet?</strong></p>
+                            <img src="../images/media.png" height="100">
                             <a href="../templates/index_kw.html" target="_blank" data-toggle="tooltip" data-placement="top" title="Click to see a full interactive trend report">
-                              <img src="../images/sightings.png">
+                              <img src="../images/sightings.png" width="720" height="350">
                             </a>
                           </div>
                       
@@ -119,3 +148,4 @@
     </div>
      
 </body>
+</html>
