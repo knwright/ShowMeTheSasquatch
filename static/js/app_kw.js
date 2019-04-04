@@ -1,4 +1,4 @@
-d3.csv("../../data/bfro_reports_geocoded.csv").then(function(bf_data) {
+d3.json("http://localhost:5000/BigFoot/data").then(function(bf_data) {
     // console.log(bf_data);
     buildPlot(bf_data);
 });

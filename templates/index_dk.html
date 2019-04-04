@@ -1,0 +1,70 @@
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>The Squatch Story</title>
+    <!-- Bring in our bootstrap stylesheet -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-w6tc0TXjTUnYHwVwGgnYyV12wbRoJQo9iMlC2KdkdmVvntGgzT9jvqNEF/uKaF4m" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/_variables.scss') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/_bootswatch.scss') }}">
+<!--Dave Specific Leaflet Stuff-->  
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<link rel="stylesheet" href="../static/css/style.css">
+<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+
+<!-- Marker Cluster JS & CSS -->
+<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+</head>
+
+<body>
+<!--Begin Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">The Sasquatch Story</a>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="http://www.bfro.net/GDB/submitfm.asp"  target="_blank">Report  a Sighting</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index_kw.html">Sightings by Year</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index_jm.html">Sightings by Month/Day</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="index_dk.html">Sightings Map</a>
+            <li>  
+        </ul>
+        </div>   
+      
+  </nav>
+<!--End Navbar-->
+
+      <!--ADD Dave's PLOT HERE-->
+        
+      <div id="map"></div>
+
+<!-- Dave's Scripts for map -->
+
+<script src="{{ url_for('static', filename='js/leaflet.extra-markers.min.js') }}"></script>
+
+<!-- API key -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script>
+<script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+
+<!-- Leaflet heatmap plugin-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/leaflet-heat.js') }}"></script> 
+
+
+
+</body>
+
+</html>
