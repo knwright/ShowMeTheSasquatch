@@ -1,1 +1,1 @@
-<?php header( 'Location: templates/index_el.html' ) ;  ?>
+<?php include_once("home.html"); ?>
