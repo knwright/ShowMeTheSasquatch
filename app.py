@@ -53,7 +53,7 @@ class map(Resource):
 
 # Homepage route with dropdowns
 @bigfoot.route("/index_jm.html")
-class map(Resource):
+class bar(Resource):
     def get(self):
         """
         Bigfoot Homepage
