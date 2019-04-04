@@ -1,7 +1,5 @@
 # ShowMeTheSasquatch
 
-https://showmethesquatch.herokuapp.com/BigFoot/
-
 Project 2 - Tell a story with data.
 
 Bigfoot Sightings Interactive Dashboard using Plotly
