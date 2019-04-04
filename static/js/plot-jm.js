@@ -2,7 +2,7 @@
 var fulldata;
 
 // Retrieve CSV data
-d3.csv("../../data/bfro_reports_geocoded.csv", function(datacsv) {
+d3.csv("bfro_reports_geocoded.csv", function(datacsv) {
   fulldata = datacsv;
   barchart();
  });
