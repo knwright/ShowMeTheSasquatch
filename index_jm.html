@@ -5,14 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>First Chart</title>
+  <!-- Bring in our bootstrap stylesheet -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/yeti/bootstrap.min.css" crossorigin="anonymous">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <!--D3 cdn-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
 </head>
 <body>
-  <div id="month-plot"></div>
-  <div id="day-plot"></div>
-  <script src="plot.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">The Sasquatch Story</a>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <!-- <li class="nav-item active"> -->
+                    <a class="nav-link" href="index_el.html">Their Story <span class="sr-only">(current)</span></a>
+                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://www.bfro.net/GDB/submitfm.asp"  target="_blank">Report a Sighting</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index_kw.html">Sightings by Year</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index_jm.html">Sightings by Month/Day</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="index_dk.html">Sightings Map</a>
+                    </li>  
+                </ul>
+            </nav>
+  <div id="barplot"></div>
+  <script src="plot-jm.js"></script>
   
 </body>
 </html>
