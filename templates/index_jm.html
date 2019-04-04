@@ -4,35 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>First Chart</title>
+  <title>Sasquatch Sightings by Month/Day of Week</title>
   <!-- Bring in our bootstrap stylesheet -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/yeti/bootstrap.min.css" crossorigin="anonymous">
+  
+  <!-- Plotly script source -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
   <!--D3 cdn-->
   <script src="https://d3js.org/d3.v5.min.js"></script>
+
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">The Sasquatch Story</a>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav mr-auto">
-                    <!-- <li class="nav-item active"> -->
-                    <a class="nav-link" href="index_el.html">Their Story <span class="sr-only">(current)</span></a>
+<!-- begin navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">The Sasquatch Story</a>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <!-- <li class="nav-item active"> -->
+                <a class="nav-link" href="index_el.html">Their Story <span class="sr-only">(current)</span></a>
+                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://www.bfro.net/GDB/submitfm.asp"  target="_blank">Report a Sighting</a>
                     </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://www.bfro.net/GDB/submitfm.asp"  target="_blank">Report a Sighting</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index_kw.html">Sightings by Year</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index_jm.html">Sightings by Month/Day</a>
-                        </li> 
-                        <li class="nav-item">
-                            <a class="nav-link" href="index_dk.html">Sightings Map</a>
-                    </li>  
-                </ul>
-            </nav>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index_kw.html">Sightings by Year</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index_jm.html">Sightings by Month/Day</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="index_dk.html">Sightings Map</a>
+                </li>  
+            </ul>
+        </nav>
+<!-- end navbar -->
+    
   <div id="barplot"></div>
   <script src="../static/js/plot-jm.js"></script>
   
