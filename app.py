@@ -31,7 +31,7 @@ class mainpage(Resource):
         return make_response (render_template('index_el.html'),200,headers)
 
 # Homepage route with dropdowns
-@bigfoot.route("/SightingsMap")
+@bigfoot.route("/index_dk.html")
 class scatter(Resource):
     def get(self):
         """
@@ -41,7 +41,7 @@ class scatter(Resource):
         return make_response (render_template('index_dk.html'),200,headers)
 
 # Homepage route with dropdowns
-@bigfoot.route("/SightingsYear")
+@bigfoot.route("/index_kw.html")
 class map(Resource):
     def get(self):
         """
@@ -51,7 +51,7 @@ class map(Resource):
         return make_response (render_template('index_kw.html'),200,headers)
 
 # Homepage route with dropdowns
-@bigfoot.route("/SightingsMD")
+@bigfoot.route("/index_jm.html")
 class map(Resource):
     def get(self):
         """
