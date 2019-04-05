@@ -2,7 +2,7 @@
 // var fulldata;
 
 // Retrieve CSV data
-d3.csv("../../data/bfro_reports_geocoded.csv").then(function(fulldata) {
+d3.json("http://localhost:5000/BigFoot/data").then(function(fulldata) {
   buildPlot(fulldata)
 });
 

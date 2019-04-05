@@ -21,7 +21,7 @@ var icons = {
 };
 
 // Retrieve CSV data
-d3.csv("data/bfro_reports_geocoded.csv", function(data) {
+d3.json("http://localhost:5000/BigFoot/data", function(data) {
   console.log(data);
   createMap(data);
 });
@@ -58,10 +58,8 @@ function createMap(data) {
       popupString = "<h1>" + data[i].date + "</h1><br>"
         + "(" + data[i].latitude + ", " + data[i].longitude + ")"
         + "<br>" + data[i].county + ", " + data[i].state
-        + "<br>" + data[i].location_details
-        + "<hr>" + data[i].classification + ": (" + i + ") " + data[i].title
-        + "<hr>" + data[i].summary
-        + "<hr>" + data[i].observed;
+        + "<hr>" + data[i].classification + ": (" + i + ") "
+        + "<hr>" + data[i].summary;
       markers.addLayer(L.marker([data[i].latitude, data[i].longitude], {
         icon: icons[data[i].classification]
       })
