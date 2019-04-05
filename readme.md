@@ -20,7 +20,7 @@ Change csv files to mongo_db
 Use flash/dash to deploy to Heroku
 
 ## Project Layout Basic Template
-![Layout Template](images/squatch.png)
+![Layout Template](static/images/squatch.png)
 
 ## Inspiration
 ![Interactive Dashboard Inspo](static/images/interactive_dashboard.png)
