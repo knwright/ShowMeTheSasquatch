@@ -43,7 +43,7 @@ class scatter(Resource):
 
 # Homepage route with dropdowns
 @bigfoot.route("/index_kw.html")
-class map(Resource):
+class heatmap(Resource):
     def get(self):
         """
         Bigfoot Homepage
@@ -53,7 +53,7 @@ class map(Resource):
 
 # Homepage route with dropdowns
 @bigfoot.route("/index_jm.html")
-class bar(Resource):
+class barplot(Resource):
     def get(self):
         """
         Bigfoot Homepage
@@ -70,7 +70,7 @@ class data(Resource):
         """
         
         # Read csv file
-        csvfile = open('data/bfro_reports_geocoded.csv')
+        csvfile = open('static/data/bfro_reports_geocoded.csv')
         records = csv.DictReader(csvfile)
         collection.drop()
 
@@ -95,8 +95,8 @@ class data(Resource):
         json_sightings = []
         for sighting in sightings:
             json_sightings.append(sighting)
-        json_sightings=json.dumps(json_sightings, default=json_util.default)
-        return json_sightings
+        # json_sightings=json.dumps(json_sightings, default=json_util.default)
+        return jsonify(json_sightings)
 
 
 # Initialize app
