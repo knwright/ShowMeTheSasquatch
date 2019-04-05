@@ -23,10 +23,10 @@ Use flash/dash to deploy to Heroku
 ![Layout Template](images/squatch.png)
 
 ## Inspiration
-![Interactive Dashboard Inspo](images/interactive_dashboard.png)
-![Sasquatch Map](images/sashquatch_map.png)
-![Sasquatch Map 2](images/sasquatch_map2.png)
-![Sasquatch Map 3](images/sasquatch_map3.png)
+![Interactive Dashboard Inspo](static/images/interactive_dashboard.png)
+![Sasquatch Map](static/images/sashquatch_map.png)
+![Sasquatch Map 2](static/images/sasquatch_map2.png)
+![Sasquatch Map 3](static/images/sasquatch_map3.png)
 
 ##Group Members: 
 
